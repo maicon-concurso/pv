@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Sistema - Plenário Virtual</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Simulação de Sistema - Plenário Virtual</h1>
+        <p>Olá, Simone. Aqui está uma simulação de como o sistema poderia funcionar para facilitar suas tarefas na secretaria.</p>
+        
+        <div class="form-group">
+            <label for="filter">Filtrar Processos:</label>
+            <input type="text" class="form-control" id="filter" placeholder="Digite palavras-chave para filtrar">
+        </div>
+        
+        <button class="btn btn-primary mb-3" onclick="filtrarProcessos()">Filtrar</button>
+        
+        <h3>Lista de Processos</h3>
+        <ul class="list-group" id="processList">
+            <li class="list-group-item">
+                Processo 003941.1 <button class="btn btn-sm btn-success float-right" onclick="marcarPV(this)">Marcar como PV</button>
+            </li>
+            <li class="list-group-item">
+                Processo 00356.2 <button class="btn btn-sm btn-success float-right" onclick="marcarPV(this)">Marcar como PV</button>
+            </li>
+            <li class="list-group-item">
+                Processo 00358.3 <button class="btn btn-sm btn-success float-right" onclick="marcarPV(this)">Marcar como PV</button>
+            </li>
+            <li class="list-group-item">
+                Processo 00351.4 <button class="btn btn-sm btn-success float-right" onclick="marcarPV(this)">Marcar como PV</button>
+            </li>
+        </ul>
+        
+        <h3 class="mt-4">Processos Marcados como PV</h3>
+        <ul class="list-group" id="pvList">
+            <!-- Processos marcados como PV serão adicionados aqui -->
+        </ul>
+    </div>
+
+    <script>
+        function filtrarProcessos() {
+            const filter = document.getElementById('filter').value.toLowerCase();
+            const processList = document.getElementById('processList');
+            const items = processList.getElementsByTagName('li');
+            
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                    item.style.display = "";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+        }
+
+        function marcarPV(button) {
+            const processItem = button.parentNode;
+            const pvList = document.getElementById('pvList');
+            
+            button.remove();
+            processItem.classList.remove('list-group-item');
+            processItem.classList.add('list-group-item-success');
+            pvList.appendChild(processItem);
+        }
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

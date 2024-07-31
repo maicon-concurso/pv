@@ -1,0 +1,168 @@
+/* Reset e box-sizing */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove sublinhado de links */
+a {
+    text-decoration: none;
+}
+
+/* Remove marcadores de lista */
+li {
+    list-style: none;
+}
+
+/* Estilo para cabeçalhos */
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* Fonte global */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Wrapper para layout flex */
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Área de conteúdo principal */
+.main {
+    min-height: 100vh;
+    flex-grow: 1;
+    margin-left: 100px; /* Ajuste padrão para o menu recolhido */
+    overflow: hidden;
+    transition: margin-left 0.35s ease-in-out;
+    background-color: #fafbfe;
+    padding: 20px;
+}
+
+/* Ajuste a margem quando a barra lateral estiver expandida */
+#sidebar.expand ~ .main {
+    margin-left: 260px;
+}
+
+/* Barra lateral recolhida */
+#sidebar {
+    width: 70px; /* Tamanho do menu recolhido */
+    min-width: 70px;
+    z-index: 1000;
+    transition: width 0.25s ease-in-out;
+    background-color: #0e2238;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+}
+
+/* Barra lateral expandida */
+#sidebar.expand {
+    width: 220px; /* Tamanho do menu expandido, ajuste este valor conforme necessário */
+}
+
+/* Estilos do botão de alternância */
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+/* Logo da barra lateral */
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* Ocultar logo e texto quando a barra lateral estiver recolhida */
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+/* Navegação da barra lateral */
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+/* Estilos do link da barra lateral */
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+/* Efeito de hover para links da barra lateral */
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+/* Item da barra lateral */
+.sidebar-item {
+    position: relative;
+}
+
+/* Estilos do dropdown para a barra lateral recolhida */
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+/* Mostrar dropdown no hover quando a barra lateral estiver recolhida */
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}

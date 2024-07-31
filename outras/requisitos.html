@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requisitos Funcionais</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .card {
+            width: 220px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-text {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #f6f6f6;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .card h3 {
+            margin-top: 40px;
+        }
+
+        .section-title {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            width: 100%;
+            border-top: 1px solid #ccc;
+        }
+
+        .search-bar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            z-index: 1000;
+        }
+
+        mark {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-bar">
+        <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar...">
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h5 class="section-title">RF01: Autenticação de Usuário</h5>
+                <div class="card-container">
+                    <!-- RF01 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0101.html'">
+                        <h3>RF0101</h3>
+                        <div class="card-text">Permitir login com usuário e senha</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0102.html'">
+                        <h3>RF0102</h3>
+                        <div class="card-text">Permitir logout de forma segura</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF02: Cadastro de Sessões</h5>
+                <div class="card-container">
+                    <!-- RF02 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0201.html'">
+                        <h3>RF0201</h3>
+                        <div class="card-text">Número da sessão gerado automaticamente</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0202.html'">
+                        <h3>RF0202</h3>
+                        <div class="card-text">Cadastrar data e hora de início e término</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0203.html'">
+                        <h3>RF0203</h3>
+                        <div class="card-text">Cadastrar relator e membros participantes</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0204.html'">
+                        <h3>RF0204</h3>
+                        <div class="card-text">Sessão só pode ser cadastrada para data seguinte</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF03: Inclusão de itens em pauta</h5>
+                <div class="card-container">
+                    <!-- RF03 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0301.html'">
+                        <h3>RF0301</h3>
+                        <div class="card-text">Definir itens de pauta dos processos</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0302.html'">
+                        <h3>RF0302</h3>
+                        <div class="card-text">Selecionar sistema fonte e informar número do documento</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF04: Votação</h5>
+                <div class="card-container">
+                    <!-- RF04 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0401.html'">
+                        <h3>RF0401</h3>
+                        <div class="card-text">Opções de votação de acordo com o RF04</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF05: Permissões do(a) Secretário(a) (Membro)</h5>
+                <div class="card-container">
+                    <!-- RF05 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0501.html'">
+                        <h3>RF0501</h3>
+                        <div class="card-text">Criar sessões e incluir itens em pauta</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0502.html'">
+                        <h3>RF0502</h3>
+                        <div class="card-text">Cadastrar relator e membros na sessão/pauta</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0503.html'">
+                        <h3>RF0503</h3>
+                        <div class="card-text">Acessar ata/extrato final da sessão</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF06: Permissões do(a) Relator(a)</h5>
+                <div class="card-container">
+                    <!-- RF06 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0601.html'">
+                        <h3>RF0601</h3>
+                        <div class="card-text">Incluir e retirar item de pauta</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0602.html'">
+                        <h3>RF0602</h3>
+                        <div class="card-text">Acessar ata/extrato final da sessão</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF07: Permissões do(a) Membro(a)</h5>
+                <div class="card-container">
+                    <!-- RF07 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0701.html'">
+                        <h3>RF0701</h3>
+                        <div class="card-text">Votar (opções de acordo com o RF04)</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0702.html'">
+                        <h3>RF0702</h3>
+                        <div class="card-text">Acessar ata/extrato final da sessão</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF08: Permissões da Comunidade / Público em Geral</h5>
+                <div class="card-container">
+                    <!-- RF08 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0801.html'">
+                        <h3>RF0801</h3>
+                        <div class="card-text">Consultar itens que foram julgados</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0802.html'">
+                        <h3>RF0802</h3>
+                        <div class="card-text">Acessar ata/extrato final da sessão</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0803.html'">
+                        <h3>RF0803</h3>
+                        <div class="card-text">Acesso público, sem necessidade de informar dados de autenticação</div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h5 class="section-title">RF09: Permissões Secretaria / Expediênte</h5>
+                <div class="card-container">
+                    <!-- RF09 Cards -->
+                    <div class="card" onclick="window.location.href='link-to-RF0901.html'">
+                        <h3>RF0901</h3>
+                        <div class="card-text">Consultar itens que foram julgados</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0902.html'">
+                        <h3>RF0902</h3>
+                        <div class="card-text">Acessar ata/extrato final da sessão</div>
+                    </div>
+                    <div class="card" onclick="window.location.href='link-to-RF0903.html'">
+                        <h3>RF0903</h3>
+                        <div class="card-text">Receber, registrar, distribuir e expedir documentos e procedimentos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            var filter = this.value.trim().toLowerCase();
+            var cards = document.getElementsByClassName('card');
+            Array.prototype.forEach.call(cards, function(card) {
+                var text = card.textContent || card.innerText;
+                if (filter === "") {
+                    card.style.display = "";
+                    card.innerHTML = card.innerHTML.replace(/<\/?mark[^>]*>/g, ''); // Remove existing <mark> tags
+                } else if (similarMatch(text, filter)) {
+                    card.style.display = "";
+                    highlight(card, filter);
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    
+        function highlight(card, filter) {
+            var innerHTML = card.innerHTML;
+            var regex = new RegExp(filter, 'gi');
+            innerHTML = innerHTML.replace(/<\/?mark[^>]*>/g, ''); // Remove existing <mark> tags
+            innerHTML = innerHTML.replace(regex, function(match) {
+                return '<mark>' + match + '</mark>';
+            });
+            card.innerHTML = innerHTML;
+        }
+    
+        function similarMatch(text, filter) {
+            var stemmedText = text.toLowerCase().replace(/(ões|ão|ar|er|ir|s|es|ás|em|ens|is|e|r|d|m|c)$/gi, '');
+            var stemmedFilter = filter.toLowerCase().replace(/(ões|ão|ar|er|ir|s|es|ás|em|ens|is|e|r|d|m|c)$/gi, '');
+            return stemmedText.includes(stemmedFilter);
+        }
+    </script>
+    
+    
+    
+    
+</body>
+
+</html>
