@@ -166,3 +166,51 @@ a.sidebar-link:hover {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
+.card {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.card-header {
+    background-color: #4CAF50;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    background-color: #f4f4f4; /* Light grey background */
+    text-decoration: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    background-color: #5cb85c; /* Green background */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.fas {
+    cursor: pointer;
+    color: white; /* Icon color */
+}

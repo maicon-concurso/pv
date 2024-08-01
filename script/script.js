@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-           // loadPage('/paginas/index.html', false);
+           loadPage('index.html', false);
 
             window.addEventListener('popstate', function(event) {
                 if (event.state && event.state.page) {
@@ -44,4 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => console.error('Erro ao carregar o menu:', error));
+});
+document.querySelector('.fas').addEventListener('click', function() {
+    alert('Sincronizando dados...');
 });
