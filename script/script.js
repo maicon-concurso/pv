@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            loadPage('/paginas/index.html', false);
+           // loadPage('/paginas/index.html', false);
 
             window.addEventListener('popstate', function(event) {
                 if (event.state && event.state.page) {

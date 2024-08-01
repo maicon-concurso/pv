@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 # Adicionar todos os arquivos modificados
 git add .
