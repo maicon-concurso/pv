@@ -183,6 +183,15 @@ a.sidebar-link:hover {
     justify-content: space-between;
     align-items: center;
 }
+.card-header2 {
+    background-color: #eb3a1a;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .card-body {
     padding: 10px;
