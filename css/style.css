@@ -1,7 +1,6 @@
 /* Estilo básico para o wrapper */
 .wrapper {
     display: flex;
-    flex-direction: row;
     min-height: 100vh;
 }
 
@@ -9,7 +8,7 @@
 #sidebar {
     width: 250px;
     background-color: #343a40;
-    transition: margin 0.3s ease;
+    transition: width 0.3s ease;
     min-height: 100vh;
     position: fixed;
     left: 0;
@@ -18,9 +17,9 @@
     z-index: 1000;
 }
 
-/* Estilo quando o menu está ativo (colapsado) */
+/* Estilo quando o menu está recolhido */
 #sidebar.active {
-    margin-left: -250px; /* Esconde o menu quando colapsado */
+    width: 60px; /* Apenas o suficiente para mostrar os ícones */
 }
 
 /* Estilo para o conteúdo principal */
@@ -30,12 +29,11 @@
     transition: margin 0.3s ease;
     padding: 20px;
     background-color: #f8f9fa;
-    margin-top: 0;
 }
 
-/* Ajusta o conteúdo quando o menu está colapsado */
+/* Ajusta o conteúdo quando o menu está recolhido */
 #sidebar.active ~ .main {
-    margin-left: 0;
+    margin-left: 60px; /* Ajuste para coincidir com a largura do menu recolhido */
 }
 
 /* Estilo para os links no menu */
@@ -50,15 +48,28 @@
 }
 
 .sidebar-nav .sidebar-link {
-    display: block;
+    display: flex;
+    align-items: center;
     color: #fff;
     padding: 15px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, padding 0.3s;
 }
 
-.sidebar-nav .sidebar-link:hover {
-    background-color: #495057;
+.sidebar-nav .sidebar-link i {
+    min-width: 30px;
+    text-align: center;
+}
+
+.sidebar-nav .sidebar-link span {
+    flex-grow: 1;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#sidebar.active .sidebar-link span {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* Estilo para a logo do sidebar */
@@ -82,8 +93,64 @@
     margin: 10px;
 }
 
+/* Estilo do link de logout */
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.sidebar-footer .sidebar-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sidebar-footer .sidebar-link i {
+    min-width: 30px;
+    text-align: center;
+}
+
 /* Estilo dos badges nos cards */
 .badge {
     background-color: #28a745;
     color: #fff;
+}
+/* Container de avatares */
+.avatar-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+}
+
+/* Estilo dos avatares */
+.avatar {
+    position: relative;
+    width: 40px; /* Ajuste conforme necessário */
+    height: 40px; /* Ajuste conforme necessário */
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 10px; /* Espaçamento entre os avatares */
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.avatar .badge {
+    font-size: 0.75em;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    line-height: 1.5em;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px; /* Ajuste conforme necessário */
+    right: -7px; /* Ajuste conforme necessário */
 }

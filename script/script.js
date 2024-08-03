@@ -2,10 +2,7 @@
 
 // Função para carregar uma página e atualizar apenas o conteúdo
 function loadPage(page) {
-    console.log(`Carregando a página: ${page}`); // Log para depuração
-
-    // Constrói a URL completa para a página
-    const resolvedPage = new URL(page, window.location.origin).href;
+    const resolvedPage = page.startsWith('/') ? page : '/' + page;
 
     fetch(resolvedPage)
         .then(response => {
@@ -15,18 +12,16 @@ function loadPage(page) {
             return response.text();
         })
         .then(html => {
-            // Cria um elemento temporário para manipular o HTML carregado
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = html;
-
-            // Seleciona apenas o conteúdo da nova página (assumindo que #content contém o conteúdo dinâmico)
-            const newContent = tempDiv.querySelector('#content');
-            if (newContent) {
-                document.getElementById('content').innerHTML = newContent.innerHTML;
-            } else {
-                console.warn('Elemento #content não encontrado na página carregada.');
+            const contentElement = document.getElementById('content');
+            if (contentElement) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newContent = doc.getElementById('content');
+                if (newContent) {
+                    contentElement.innerHTML = newContent.innerHTML;
+                }
             }
-            window.history.pushState({path: page}, '', resolvedPage);
+            window.history.pushState({path: resolvedPage}, '', resolvedPage);
         })
         .catch(error => {
             console.error('Erro ao carregar a página:', error);
@@ -55,7 +50,7 @@ function loadMenu() {
         });
 }
 
-// Função para inicializar eventos do menu (expandir/contrair)
+// Função para inicializar eventos do menu
 function initializeMenu() {
     const toggleButton = document.querySelector('.toggle-btn');
     const sidebar = document.getElementById('sidebar');
@@ -65,7 +60,7 @@ function initializeMenu() {
         });
     }
 
-    // Adiciona eventos aos links do menu para carregamento dinâmico
+    // Eventos de clique nos links do menu
     document.querySelectorAll('#sidebar .sidebar-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
