@@ -154,3 +154,20 @@
     top: -7px; /* Ajuste conforme necessário */
     right: -7px; /* Ajuste conforme necessário */
 }
+
+/*MINHAS ALTERAÇÕES*/
+
+.table-header > th {
+    text-align: center;
+    align-content: center;
+}
+.table-content > td {
+    text-align: center;
+    align-content: center;
+}
+
+#listMembros{
+    height: 200px;
+    width: 200px;
+    background-color: #28a745;
+}

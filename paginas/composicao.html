@@ -31,7 +31,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-sm">
                             <thead>
-                                <tr>
+                                <tr class="table-header">
                                     <th>Exercício</th>
                                     <th>Início - Fim do Pleno</th>
                                     <th>Membros</th>
@@ -40,17 +40,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr class="table-content">
                                     <td>00/00/0000 - 00/00/0000</td>
                                     <td>00/00/0000 - 00/00/0000</td>
-                                    <td><button class="btn btn-primary btn-sm">Membros</button></td>
-                                    <td><a href="#" class="btn btn-link">000/0000 - GAB-PGJ/MP-RO</a></td>
+
+                                    <td>
+                                        <button class="btn btn-primary btn-sm">Membros</button>
+                                    </td>
+
+                                    <td>
+                                        <a href="#" class="btn btn-link">000/0000 - GAB-PGJ/MP-RO</a>
+                                    </td>
+
                                     <td>
                                         <button class="btn btn-sm btn-warning">Editar</button>
                                         <button class="btn btn-sm btn-danger">Deletar</button>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="table-content">
                                     <td>00/00/0000 - 00/00/0000</td>
                                     <td>00/00/0000 - 00/00/0000</td>
                                     <td><button class="btn btn-primary btn-sm">Membros</button></td>
@@ -76,6 +83,13 @@
             </div>
         </main>
     </div>
+
+    <!--POP UP com informações-->
+
+    <div id="listaMembros">
+
+    </div>
+
     <!-- Link para o bundle JS do Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
