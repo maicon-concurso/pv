@@ -35,7 +35,10 @@
 #sidebar.active ~ .main {
     margin-left: 60px; /* Ajuste para coincidir com a largura do menu recolhido */
 }
-
+.recolher{
+    margin-left: 60px;
+   
+}
 /* Estilo para os links no menu */
 .sidebar-nav {
     padding: 0;

@@ -62,6 +62,7 @@ function initializeMenu() {
     if (toggleButton && sidebar) {
         toggleButton.addEventListener('click', function() {
             sidebar.classList.toggle('active');
+            document.getElementById("p-3").classList.toggle('recolher');
         });
     }
 
