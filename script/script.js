@@ -21,7 +21,7 @@ function loadPage(page) {
                     contentElement.innerHTML = newContent.innerHTML;
                 }
             }
-            window.history.pushState({path: resolvedPage}, '', resolvedPage);
+            window.history.pushState({ path: resolvedPage }, '', resolvedPage);
         })
         .catch(error => {
             console.error('Erro ao carregar a página:', error);
@@ -34,7 +34,10 @@ function loadPage(page) {
 
 // Função para carregar o menu uma única vez
 function loadMenu() {
-    fetch('menu.html')
+    // Sempre usa o caminho relativo para páginas dentro de /paginas/
+    const pathToMenu = '../menu.html';
+
+    fetch(pathToMenu)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Menu não encontrado: ${response.status}`);
@@ -42,18 +45,18 @@ function loadMenu() {
             return response.text();
         })
         .then(html => {
-            document.getElementById('menu').innerHTML = html;
-            initializeMenu(); // Inicializa eventos do menu
+            const menuElement = document.getElementById('menu');
+            if (menuElement) {
+                menuElement.innerHTML = html;
+                initializeMenu(); // Inicializa eventos do menu
+            } else {
+                console.error('Elemento #menu não encontrado.');
+            }
         })
         .catch(error => {
             console.error('Erro ao carregar o menu:', error);
         });
 }
-
-// FIM Função para carregar o cabecalho
-
-// Função para carregar o cabecalho
-
 
 // Função para inicializar eventos do menu
 function initializeMenu() {
@@ -88,5 +91,4 @@ window.onpopstate = function(event) {
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     loadMenu(); // Carrega o menu na inicialização
-    loadCabecalho();
 });
