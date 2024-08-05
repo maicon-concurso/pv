@@ -155,12 +155,13 @@
     right: -7px; /* Ajuste conforme necessário */
 }
 
-/*MINHAS ALTERAÇÕES*/
-
+/*Alinhar o cabeçalho das Tables*/
 .table-header > th {
     text-align: center;
     align-content: center;
 }
+
+/*Alinhar o conteúdo das Tables*/
 .table-content > td {
     text-align: center;
     align-content: center;
@@ -170,4 +171,10 @@
     height: 200px;
     width: 200px;
     background-color: #28a745;
+}
+
+#top-header{
+    background-color: black;
+    width: 100vw;
+   
 }

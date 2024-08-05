@@ -50,6 +50,11 @@ function loadMenu() {
         });
 }
 
+// FIM Função para carregar o cabecalho
+
+// Função para carregar o cabecalho
+
+
 // Função para inicializar eventos do menu
 function initializeMenu() {
     const toggleButton = document.querySelector('.toggle-btn');
@@ -82,4 +87,5 @@ window.onpopstate = function(event) {
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     loadMenu(); // Carrega o menu na inicialização
+    loadCabecalho();
 });
