@@ -20,6 +20,7 @@ function loadPage(page) {
                 if (newContent) {
                     contentElement.innerHTML = newContent.innerHTML;
                 }
+                initializeAvatars(); // Inicializa eventos dos avatares após carregar a nova página
             }
             window.history.pushState({ path: resolvedPage }, '', resolvedPage);
         })
@@ -81,6 +82,39 @@ function initializeMenu() {
     });
 }
 
+// Função para inicializar eventos dos avatares
+function initializeAvatars() {
+    const chatModalLabel = document.getElementById('chatModalLabel');
+    const chatMessage = document.getElementById('chatMessage');
+    const sendButton = document.querySelector('.btn-primary');
+    const messageArea = document.createElement('div');
+    messageArea.className = 'message-container';
+
+    document.querySelectorAll('.avatar').forEach(avatar => {
+        avatar.addEventListener('click', function() {
+            const name = this.getAttribute('data-name');
+            chatModalLabel.innerHTML = `<strong>Chat com ${name}</strong>`; // Atualiza o título do modal
+
+            // Evento de clique para enviar mensagem
+            sendButton.onclick = function() {
+                const messageContent = chatMessage.value;
+                if (messageContent.trim() !== '') {
+                    const newMessage = document.createElement('p');
+                    newMessage.innerHTML = `<strong>${name}:</strong> ${messageContent}`;
+                    messageArea.appendChild(newMessage);
+                    chatMessage.value = ''; // Limpa o campo de mensagem
+                    chatMessage.focus(); // Mantém o foco no campo de mensagem após enviar
+                }
+            };
+        });
+    });
+
+    // Certifique-se de que apenas uma área de mensagem seja anexada
+    if (!document.querySelector('.modal-body .message-container')) {
+        document.querySelector('.modal-body').appendChild(messageArea); // Anexa a área de mensagem ao corpo do modal
+    }
+}
+
 // Eventos de navegação
 window.onpopstate = function(event) {
     if (event.state) {
@@ -91,4 +125,5 @@ window.onpopstate = function(event) {
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
     loadMenu(); // Carrega o menu na inicialização
+    initializeAvatars(); // Inicializa eventos dos avatares na carga inicial
 });
