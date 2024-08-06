@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,29 +14,33 @@
 
 <body>
     <div class="wrapper">
-
-        <id id="cabecalho"></id>
+        <div id="cabecalho"></div>
         <!--Div Menu-->
         <div id="menu"></div>
         <!--FIm Div Menu-->
 
         <!-- Avatares de usuários logados no sistema -->
-        <div class="d-flex justify-content-end p-3" style="position: absolute; top: 0; right: 0;">
-            
-            <div class="avatar mb-2 me-2">
-                <div class="avatar-image" style="background-image: url('https://via.placeholder.com/50');"></div>
-                <span class="badge bg-warning position-absolute top-0 start-100 translate-middle">4</span>
-            </div>
-
-            <div class="avatar mb-2 me-2">
-                <div class="avatar-image" style="background-image: url('https://via.placeholder.com/50');"></div>
-                <span class="badge bg-warning position-absolute top-0 start-100 translate-middle">1</span>
-            </div>
-
-        <!-- Fim Avatares -->
-
+        <div class="avatar-container">
+            <button class="avatar mb-2 me-2" data-bs-toggle="modal" data-bs-target="#chatModal" title="Alice" data-name="Alice">
+                <img src="/images/girl.png" alt="Alice">
+            </button>
+        
+            <button class="avatar mb-2 me-2" data-bs-toggle="modal" data-bs-target="#chatModal" title="Bob" data-name="Bob">
+                <img src="/images/man (1).png" alt="Bob">
+            </button>
+        
+            <button class="avatar mb-2 me-2" data-bs-toggle="modal" data-bs-target="#chatModal" title="Carol" data-name="Carol">
+                <img src="/images/man.png" alt="Carol">
+            </button>
+        
+            <button class="avatar mb-2 me-2" data-bs-toggle="modal" data-bs-target="#chatModal" title="Dave" data-name="Dave">
+                <img src="/images/woman.png" alt="Dave">
+            </button>
         </div>
-        <main class="main" id="p-3">
+        
+
+
+        <main class="main p-3">
             <div id="content">
                 <h1>Painel Principal</h1>
                 <p>Bem-vindo ao Planário Virtual! Utilize o menu para navegar entre as seções.</p>
@@ -50,37 +55,74 @@
                             </div>
                             <div class="card-body">
                                 <div class="list-group">
-                                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="#"
+                                        class="list-group-item d-flex justify-content-between align-items-center">
                                         Recebidos <span class="badge bg-success">10</span>
                                     </a>
-                                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="#"
+                                        class="list-group-item d-flex justify-content-between align-items-center">
                                         Pautados <span class="badge bg-success">10</span>
                                     </a>
-                                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="#"
+                                        class="list-group-item d-flex justify-content-between align-items-center">
                                         Destacados <span class="badge bg-success">25</span>
                                     </a>
-                                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="#"
+                                        class="list-group-item d-flex justify-content-between align-items-center">
                                         Aguardando Votação <span class="badge bg-success">15</span>
                                     </a>
-                                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
-                                        Sessões Encerradas <span class="badge bg-success">100</span>
-                                    </a>
-                                    <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                                    <a href="#"
+                                        class="list-group-item d-flex justify-content-between align-items-center">
                                         Sessões Encerradas <span class="badge bg-success">100</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
         </main>
     </div>
 
+    <!-- Modal de Chat -->
+    <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="chatModalLabel">Chat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="chatMessage">Digite sua mensagem:</label>
+                        <textarea class="form-control" id="chatMessage" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-        
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
     <script src="/script/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Carregar o menu
+            loadMenu();
+
+            // Inicializar eventos de clique no modal se necessário
+            const avatars = document.querySelectorAll('.avatar');
+            avatars.forEach(avatar => {
+                avatar.addEventListener('click', function () {
+                    // Lógica personalizada ao abrir o modal, se necessário
+                    console.log('Avatar clicado!');
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>

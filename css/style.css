@@ -35,10 +35,11 @@
 #sidebar.active ~ .main {
     margin-left: 60px; /* Ajuste para coincidir com a largura do menu recolhido */
 }
-.recolher{
+
+.recolher {
     margin-left: 60px;
-   
 }
+
 /* Estilo para os links no menu */
 .sidebar-nav {
     padding: 0;
@@ -120,64 +121,76 @@
     background-color: #28a745;
     color: #fff;
 }
-/* Container de avatares */
+
+/* Container dos avatares, posicionado absolutamente no canto superior direito */
 .avatar-container {
     position: absolute;
-    top: 0;
-    right: 0;
-    padding: 20px;
+    top: 20px; /* Ajuste para distanciar da borda superior */
+    right: 20px; /* Ajuste para distanciar da borda direita */
+    display: flex; /* Usa flexbox para alinhar horizontalmente os avatares */
+    gap: 10px; /* Espaçamento entre cada avatar */
+    padding: 10px; /* Espaço interno ao redor do conteúdo */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente para destacar do fundo */
+    border-radius: 10px; /* Bordas arredondadas do contêiner */
 }
 
-/* Estilo dos avatares */
+/* Estilo de cada avatar individual */
 .avatar {
-    position: relative;
-    width: 40px; /* Ajuste conforme necessário */
-    height: 40px; /* Ajuste conforme necessário */
-    border-radius: 50%;
-    overflow: hidden;
-    display: inline-block;
-    margin-left: 10px; /* Espaçamento entre os avatares */
+    width: 50px; /* Largura fixa do avatar */
+    height: 50px; /* Altura fixa do avatar */
+    border-radius: 50%; /* Torna o avatar circular */
+    display: flex; /* Flexbox para centralizar a imagem */
+    justify-content: center; /* Centraliza horizontalmente a imagem dentro do avatar */
+    align-items: center; /* Centraliza verticalmente a imagem dentro do avatar */
+    cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+    border: 2px solid transparent; /* Borda inicial transparente para transição suave em hover */
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; /* Transições suaves para hover */
+    overflow: hidden; /* Evita que a imagem saia do círculo */
 }
 
-.avatar-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
+/* Estilo da imagem dentro do avatar */
+.avatar img {
+    height: 100%; /* Define a altura para preencher o avatar */
+    width: auto; /* A largura é automática para manter as proporções */
+    min-width: 100%; /* A largura mínima é 100% para garantir cobertura total */
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço disponível, mantendo as proporções */
 }
 
-.avatar .badge {
-    font-size: 0.75em;
-    width: 1.5em;
-    height: 1.5em;
-    text-align: center;
-    line-height: 1.5em;
-    border-radius: 50%;
-    position: absolute;
-    top: -7px; /* Ajuste conforme necessário */
-    right: -7px; /* Ajuste conforme necessário */
+/* Efeito de hover para avatares */
+.avatar:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do avatar em 10% */
+    border-color: #00ff00; /* Muda a cor da borda para verde florescente */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Adiciona sombra verde ao redor do avatar */
 }
 
-/*Alinhar o cabeçalho das Tables*/
+
+/* Alinhar o cabeçalho das Tables */
 .table-header > th {
     text-align: center;
     align-content: center;
 }
 
-/*Alinhar o conteúdo das Tables*/
+/* Alinhar o conteúdo das Tables */
 .table-content > td {
     text-align: center;
     align-content: center;
 }
 
-#listMembros{
+#listMembros {
     height: 200px;
     width: 200px;
     background-color: #28a745;
 }
 
-#top-header{
+#top-header {
     background-color: black;
     width: 100vw;
-   
+}
+.modal-body div {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+    overflow-y: auto;
+    height: 150px; /* Fixa a altura e permite rolagem */
 }
