@@ -81,10 +81,18 @@
     font-size: 1.2rem;
     padding: 15px;
     color: #fff;
-    background-color: #343a40;
+   
     text-align: center;
     text-decoration: none;
+    width: 100%;
+    
 }
+
+.sidebar-logo > a > img{
+    height: 50px;
+    width: 100%;
+}
+
 
 /* Botão de alternância do menu */
 .toggle-btn {
@@ -200,4 +208,16 @@
     display: block;
     margin-left: -1000px;
     
+}
+
+.bem-vindo{
+    margin-bottom: 30px;
+}
+
+.card-body-mod{
+  
+}
+
+.col-md-4-mod{
+    border: no;
 }
