@@ -63,10 +63,11 @@ function loadMenu() {
 function initializeMenu() {
     const toggleButton = document.querySelector('.toggle-btn');
     const sidebar = document.getElementById('sidebar');
+    const menu = document.querySelector('.p-3')
     if (toggleButton && sidebar) {
         toggleButton.addEventListener('click', function() {
             sidebar.classList.toggle('active');
-            document.getElementById("p-3").classList.toggle('recolher');
+            menu.classList.toggle('recolher');
         });
     }
 
