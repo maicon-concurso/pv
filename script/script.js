@@ -59,6 +59,36 @@ function loadMenu() {
         });
 }
 
+
+
+// Função para carregar o cabeçalho uma única vez
+function loadCabecalho() {
+    // Sempre usa o caminho relativo para páginas dentro de /paginas/
+    const pathToMenu = '../cabecalho.html';
+
+    fetch(pathToMenu)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Menu não encontrado: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            const menuElement = document.getElementById('cabecalho');
+            if (menuElement) {
+                menuElement.innerHTML = html;
+                initializeMenu(); // Inicializa eventos do menu
+            } else {
+                console.error('Elemento #menu não encontrado.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar o menu:', error);
+        });
+}
+
+
+
 // Função para inicializar eventos do menu
 function initializeMenu() {
     const toggleButton = document.querySelector('.toggle-btn');
@@ -67,7 +97,7 @@ function initializeMenu() {
     if (toggleButton && sidebar) {
         toggleButton.addEventListener('click', function() {
             sidebar.classList.toggle('active');
-            menu.classList.toggle('recolher');
+            document.getElementById("p-3").classList.toggle('recolher');
         });
     }
 
@@ -127,4 +157,5 @@ window.onpopstate = function(event) {
 document.addEventListener('DOMContentLoaded', function() {
     loadMenu(); // Carrega o menu na inicialização
     initializeAvatars(); // Inicializa eventos dos avatares na carga inicial
+    loadCabecalho();
 });

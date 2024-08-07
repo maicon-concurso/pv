@@ -2,6 +2,7 @@
 .wrapper {
     display: flex;
     min-height: 100vh;
+    width: 100%;
 }
 
 /* Configuração do menu lateral */
@@ -132,13 +133,13 @@
 /* Container dos avatares, posicionado absolutamente no canto superior direito */
 .avatar-container {
     position: absolute;
-    top: 20px; /* Ajuste para distanciar da borda superior */
-    right: 20px; /* Ajuste para distanciar da borda direita */
+    right: 0;
     display: flex; /* Usa flexbox para alinhar horizontalmente os avatares */
     gap: 10px; /* Espaçamento entre cada avatar */
     padding: 10px; /* Espaço interno ao redor do conteúdo */
     background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente para destacar do fundo */
     border-radius: 10px; /* Bordas arredondadas do contêiner */
+
 }
 
 /* Estilo de cada avatar individual */
@@ -219,4 +220,25 @@
 
 .col-md-4-mod{
     border: no;
+}
+
+.cabecalho{
+    background-color: #6C757D;
+    border-bottom: 1px solid rgb(221, 218, 218);
+    width: 85%;
+    position: fixed;
+    height: 80px;
+    margin-left: 269px;
+    
+    
+    
+}
+
+#content{
+    margin-top: 100px;
+}
+
+#botao{
+   position: absolute;
+   left: 0;
 }
